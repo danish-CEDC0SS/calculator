@@ -15,12 +15,23 @@
 		.button {
 			box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
 		}
+		.a1{
+			width: auto;
+			height: 550px;
+		}
+		@media(min-width: 1025px) 
+		{
+		.a1{
+			width: 25%;
+			height: 550px;
+		}
+	}
 	</style>
 </head>
 
 <body>
 	<div class="container-fluid" style="padding-top: 80px; padding-right: 10px; padding-left: 10px;">
-		<div class="container" style="width: auto; height: 550px;">
+		<div class="container a1 ">
 			<div class="container"
 				style="height: 170px; background-color:rgb(240,240,240);padding-top: 5px;box-shadow: 15px 15px 15px 15px rgb(200,200,200); border-radius: 10px 10px 0px 0px;">
 				<div class="container button" style="border: 1px solid black; height: 90px; background-color: white;
@@ -179,9 +190,9 @@
 	    }
 		function fun4(){
 			if(a=='='){
-				str=document.getElementById("1").value;
-				document.getElementById("2").value="Wrong Input";
-				document.getElementById("1").value-"";
+			str=document.getElementById("1").value;
+			document.getElementById("2").value="Wrong Input";
+			document.getElementById("1").value-"";
 			}
 			else{
             var a1=str.substring(0,c);
@@ -223,9 +234,9 @@
 				document.getElementById("1").value=str;
 				document.getElementById("2").value=String(a1)+a+String(a2)+'='+g1;
 				k=0; a="";b="";c="";d="";i=0;
-			} 
-			}   
-		}
+			}    
+		   }
+	    }
 	</script>
 </body>
 
