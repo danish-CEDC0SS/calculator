@@ -1,0 +1,232 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<title>
+		Calculator
+	</title>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<style>
+		.button {
+			box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid" style="padding-top: 80px; padding-right: 10px; padding-left: 10px;">
+		<div class="container" style="width: 25%; height: 550px;">
+			<div class="container"
+				style="height: 170px; background-color:rgb(240,240,240);padding-top: 5px;box-shadow: 15px 15px 15px 15px rgb(200,200,200); border-radius: 10px 10px 0px 0px;">
+				<div class="container button" style="border: 1px solid black; height: 90px; background-color: white;
+				 padding: 5px;">
+					<input type="text" name="input" id="1" style="height: 70px; width: 100%;">
+				</div>
+				<div class="container button" style="border: 1px solid black; height: 50px; background-color: white;
+				 padding: 5px;">
+					<input type="text" name="input" id="2" style="height: 40px; width: 100%;">
+				</div>
+			</div>
+			<div class="container"
+				style="height: 350px;background: linear-gradient(rgb(230,230,230),white);box-shadow: 15px 15px 15px 15px rgb(200,200,200); border-radius: 0px 0px 10px 10px;">
+				<div class="row">
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-danger button" style="width: 100%;"
+							onclick="fun2()">C</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%;"
+							onclick="fun1('%')">%</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-danger button" style="width: 100%"
+							onclick="fun3()"> <-
+							</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('/')">/</button>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('7')">7</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('8')">8</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('9')">9</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('x')">x</button>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('4')">4</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('5')">5</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('6')">6</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('-')">-</button>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col sm-1">
+						<input type="button" class="btn btn-outline-dark button" style="width: 100%" onclick="fun1('1')"
+							value="1">
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('2')">2</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('3')">3</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('+')">+</button>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('00')">00</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('0')">0</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('.')">.</button>
+					</div>
+					<div class="col sm-1">
+						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
+							onclick="fun1('=')">=</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		str = "";
+		k=0; a="";b="";c="";d="";
+		i=0;
+		function fun1(val) {
+			str += val;
+			if ((val == '+') || (val == '-') || (val == '/') || (val == 'x') || (val == '=') || (val == '%')) {
+				var val2=str[str.length-2];
+				i=i+1;
+				console.log(val2);
+				if ((val2 == '+') || (val2 == '-') || (val2 == '/') || (val2 == 'x') || (val2 == '=') || (val2 == '%')){
+					str=str.substring(0,str.length-2);
+					str=str+val;
+					console.log(str);
+					i=i-1;
+				}
+				if(i==1){
+					c=str.length-1;
+                    a=val;
+				}
+                if(i==2){
+                	b=val;
+                	d=str.length-1;
+                }
+			}
+			console.log(a,b,c,d,'hello');
+			document.getElementById("1").value = str;
+		    if(i==2){
+			   fun4();
+		    }
+	    }
+	    function fun2(){
+	    	document.getElementById("1").value="";
+			document.getElementById("2").value="";
+		    k=0; a="";b="";c="";d="";i=0;str="";
+	    }
+	    function fun3(){
+	    	var val2=str[str.length-1];
+	    	if((val2 == '+') || (val2 == '-') || (val2 == '/') || (val2 == 'x') || (val2 == '=') || (val2 == '%')){
+	    		i=i-1;
+	    	}
+	    	str=str.substring(0,str.length-1);
+	    	document.getElementById("1").value=str;
+
+	    }
+		function fun4(){
+			if(a=='='){
+				str=document.getElementById("1").value;
+				document.getElementById("2").value="Wrong Input";
+				document.getElementById("1").value-"";
+			}
+			else{
+            var a1=str.substring(0,c);
+            a1=Number(a1);
+            var a2=str.substring(c+1,d);
+            a2=Number(a2);
+            console.log(a1,a2,'edf');
+			if(a=='+'){
+				var g1=a1+a2;
+				console.log(g1,'ans');
+				document.getElementById("2").value=g1;
+			}
+			if(a=='-'){
+				var g1=a1-a2;
+				document.getElementById("2").value=g1;
+			}
+			if(a=='/'){
+				var g1=a1/a2;
+				document.getElementById("2").value=g1;
+			}
+			if(a=='%'){
+				var g1=(a1/a2)*100;
+				document.getElementById("2").value=g1;
+			}
+			if(a=='x'){
+				var g1=a1*a2;
+				document.getElementById("2").value=g1;
+			}
+			if(b!='=')
+			{
+				document.getElementById("1").value=String(g1)+b;  
+				str=document.getElementById("1").value;
+				a=b;
+				c=str.length-1;
+				i=1;
+			}
+			else{
+				str="";
+				document.getElementById("1").value=str;
+				document.getElementById("2").value=String(a1)+a+String(a2)+'='+g1;
+				k=0; a="";b="";c="";d="";i=0;
+			} 
+			}   
+		}
+	</script>
+</body>
+
+</html>
