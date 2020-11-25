@@ -124,8 +124,8 @@
 				<hr>
 				<div class="row">
 					<div class="col sm-1">
-						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
-							onclick="fun1('00')">00</button>
+						<button type="button" class="btn btn-outline-danger button" style="width: 100%"
+							onclick="fun6()">RC</button>
 					</div>
 					<div class="col sm-1">
 						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
@@ -177,7 +177,7 @@
 	    function fun2(){
 	    	document.getElementById("1").value="";
 			document.getElementById("2").value="";
-		    k=0; a="";b="";c="";d="";i=0;str="";
+		    k=0; a="";b="";c="";d="";i=0;str="";str1="";t=0;
 	    }
 	    function fun3(){
 	    	var val2=str[str.length-1];
@@ -188,6 +188,9 @@
 	    	document.getElementById("1").value=str;
 
 	    }
+	    var str1="";
+	    var g1="";
+	    t=0;
 		function fun4(){
 			if(a=='='){
 			str=document.getElementById("1").value;
@@ -200,25 +203,33 @@
             var a2=str.substring(c+1,d);
             a2=Number(a2);
             console.log(a1,a2,'edf');
+            if(t==0){
+                 str1+=String(a1)+a+String(a2)+b;
+                 t=1;
+            } 
+            else{
+            	str1+=String(a2)+b;
+            }
+            console.log(str1,'str1');
 			if(a=='+'){
-				var g1=a1+a2;
+				g1=a1+a2;
 				console.log(g1,'ans');
 				document.getElementById("2").value=g1;
 			}
 			if(a=='-'){
-				var g1=a1-a2;
+				g1=a1-a2;
 				document.getElementById("2").value=g1;
 			}
 			if(a=='/'){
-				var g1=a1/a2;
+				g1=a1/a2;
 				document.getElementById("2").value=g1;
 			}
 			if(a=='%'){
-				var g1=(a1/a2)*100;
+				g1=(a1/a2)*100;
 				document.getElementById("2").value=g1;
 			}
 			if(a=='x'){
-				var g1=a1*a2;
+				g1=a1*a2;
 				document.getElementById("2").value=g1;
 			}
 			if(b!='=')
@@ -236,6 +247,10 @@
 				k=0; a="";b="";c="";d="";i=0;
 			}    
 		   }
+	    }
+	    function fun6(){
+	    	document.getElementById("1").value=str1.substring(0,str1.length-1);
+	    	console.log(str1,'str11');
 	    }
 	</script>
 </body>
