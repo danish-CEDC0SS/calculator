@@ -24,8 +24,11 @@
 		.a1{
 			width: 25%;
 			height: 550px;
-		}
-	}
+		   }
+	    }
+	    .button23{
+	    	box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
+	    }
 	</style>
 </head>
 
@@ -34,11 +37,11 @@
 		<div class="container a1 ">
 			<div class="container"
 				style="height: 170px; background-color:rgb(240,240,240);padding-top: 5px;box-shadow: 15px 15px 15px 15px rgb(200,200,200); border-radius: 10px 10px 0px 0px;">
-				<div class="container button" style="border: 1px solid black; height: 90px; background-color: white;
+				<div class="container button23" style="border: 1px solid black; height: 90px; background-color: white;
 				 padding: 5px;">
 					<input type="text" name="input" id="1" style="height: 70px; width: 100%;">
 				</div>
-				<div class="container button" style="border: 1px solid black; height: 50px; background-color: white;
+				<div class="container button23" style="border: 1px solid black; height: 50px; background-color: white;
 				 padding: 5px;">
 					<input type="text" name="input" id="2" style="height: 40px; width: 100%;">
 				</div>
@@ -144,7 +147,7 @@
 		</div>
 	</div>
 	<script>
-		str = "";
+		str = "";p1=0;
 		k=0; a="";b="";c="";d="";i=0;
 		function fun1(val) {
 			str += val;
@@ -166,6 +169,15 @@
                 	b=val;
                 	d=str.length-1;
                 }
+			}
+			if(p1==1){
+				p1=0;
+				if ((val == '+') || (val == '-') || (val == '/') || (val == 'x') || (val == '=') || (val == '%')){str1="";}
+			    else{
+			    	str1="";
+			    	str="";
+			    	str=val;
+			    }
 			}
 			console.log(a,b,c,d,'hello');
 			document.getElementById("1").value = str;
@@ -244,7 +256,7 @@
 				document.getElementById("1").value=str;
 				document.getElementById("2").value=String(a1)+a+String(a2)+'='+g1;
 				str=g1;
-				k=0; a="";b="";c="";d="";i=0;t=0;str1="";
+				k=0; a="";b="";c="";d="";i=0;t=0;p1=1;
 
 			}    
 		   }
