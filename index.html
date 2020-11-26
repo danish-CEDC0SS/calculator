@@ -145,8 +145,7 @@
 	</div>
 	<script>
 		str = "";
-		k=0; a="";b="";c="";d="";
-		i=0;
+		k=0; a="";b="";c="";d="";i=0;
 		function fun1(val) {
 			str += val;
 			if ((val == '+') || (val == '-') || (val == '/') || (val == 'x') || (val == '=') || (val == '%')) {
@@ -244,7 +243,9 @@
 				str="";
 				document.getElementById("1").value=str;
 				document.getElementById("2").value=String(a1)+a+String(a2)+'='+g1;
-				k=0; a="";b="";c="";d="";i=0;
+				str=g1;
+				k=0; a="";b="";c="";d="";i=0;t=0;str1="";
+
 			}    
 		   }
 	    }
