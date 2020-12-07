@@ -219,9 +219,13 @@
 			document.getElementById("1").value-"";
 			}
 			else{
-            var a1=str.substring(0,c);
+			var a1=str.substring(0,c);
+			if(a1=='.')
+				a1=0;
             a1=Number(a1);
-            var a2=str.substring(c+1,d);
+			var a2=str.substring(c+1,d);
+			if(a2=='.')
+				a2=0;
             a2=Number(a2);
             console.log(a1,a2,'edf');
             if(t==0){
