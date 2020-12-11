@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,20 +16,22 @@
 		.button {
 			box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
 		}
-		.a1{
+
+		.a1 {
 			width: auto;
 			height: 550px;
 		}
-		@media(min-width: 1025px) 
-		{
-		.a1{
-			width: 25%;
-			height: 550px;
-		   }
-	    }
-	    .button23{
-	    	box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
-	    }
+
+		@media(min-width: 1025px) {
+			.a1 {
+				width: 25%;
+				height: 550px;
+			}
+		}
+
+		.button23 {
+			box-shadow: 5px 5px 5px 5px rgb(200, 200, 200);
+		}
 	</style>
 </head>
 
@@ -59,8 +62,8 @@
 					</div>
 					<div class="col sm-1">
 						<button type="button" class="btn btn-outline-danger button" style="width: 100%"
-							onclick="fun3()"> <-
-							</button>
+							onclick="fun3()">
+							<- </button>
 					</div>
 					<div class="col sm-1">
 						<button type="button" class="btn btn-outline-dark button" style="width: 100%"
@@ -147,138 +150,176 @@
 		</div>
 	</div>
 	<script>
-		str = "";p1=0;
-		k=0; a="";b="";c="";d="";i=0; po=0;
+		str = ""; p1 = 0;
+		k = 0; a = ""; b = ""; c = ""; d = ""; i = 0; po = 0; minus = 0;
 		function fun1(val) {
 			str += val;
-			if ((val == '+') || (val == '-') || (val == '/') || (val == 'x') || (val == '=') || (val == '%')) {
-				var val2=str[str.length-2];
-				i=i+1;
-				console.log(val2);
-				if ((val2 == '+') || (val2 == '-') || (val2 == '/') || (val2 == 'x') || (val2 == '=') || (val2 == '%')){
-					str=str.substring(0,str.length-2);
-					str=str+val;
-					console.log(str);
-					i=i-1;
+			if (minus == 0) {
+				if ((val == '+') || (val == '-') || (val == '/') || (val == 'x') || (val == '=') || (val == '%')) {
+					var val2 = str[str.length - 2];
+					i = i + 1;
+					console.log(val2);
+					if ((val2 == '+') || (val2 == '-') || (val2 == '/') || (val2 == 'x') || (val2 == '=') || (val2 == '%')) {
+						str = str.substring(0, str.length - 2);
+						str = str + val;
+						console.log(str);
+						i = i - 1;
+					}
+					if ((val2 == 'x') || (val2 == '/')) {
+						if (val == '-') {
+							str = str.substring(0, str.length - 1);
+							str = str + val2 + val;
+							console.log(i, 'value of I');
+							minus = 1;
+						}
+					}
+					if (i == 1) {
+						c = str.length - 1;
+						a = val;
+						if (minus == 1) {
+							c = str.length - 2;
+							a = val2;
+						}
+						po = 0;
+					}
+					if (i == 2) {
+						b = val;
+						d = str.length - 1;
+					}
 				}
-				if(i==1){
-					c=str.length-1;
-					a=val;
-					po=0;
+			}
+			else {
+				str = str.substring(0, str.length - 1);
+				if ((val != '+') && (val != '-') && (val != '/') && (val != 'x') && (val != '=') && (val != '%')) {
+					str = str + val;
+					minus = 0;
 				}
-                if(i==2){
-                	b=val;
-					d=str.length-1;
-                }
 			}
-			if(val=='.'&&po==1){
-				str=str.substring(0,str.length-1);
+			if (val == '.' && po == 1) {
+				str = str.substring(0, str.length - 1);
 			}
-			if(val=='.')
-				po=1;
-			if(p1==1){
-				p1=0;
-				if ((val == '+') || (val == '-') || (val == '/') || (val == 'x') || (val == '=') || (val == '%')){str1="";}
-			    else{
-			    	str1="";
-			    	str="";
-			    	str=val;
-			    }
+			if (val == '.')
+				po = 1;
+			if (p1 == 1) {
+				p1 = 0;
+				if ((val == '+') || (val == '-') || (val == '/') || (val == 'x') || (val == '=') || (val == '%')) { str1 = ""; }
+				else {
+					str1 = "";
+					str = "";
+					str = val;
+				}
 			}
-			console.log(a,b,c,d,'hello');
+			console.log(a, b, c, d, 'hello');
 			document.getElementById("1").value = str;
-		    if(i==2){
-			   fun4();
-		    }
-	    }
-	    function fun2(){
-			po=0;
-	    	document.getElementById("1").value="";
-			document.getElementById("2").value="";
-		    k=0; a="";b="";c="";d="";i=0;str="";str1="";t=0;
-	    }
-	    function fun3(){
-	    	var val2=str[str.length-1];
-	    	if((val2 == '+') || (val2 == '-') || (val2 == '/') || (val2 == 'x') || (val2 == '=') || (val2 == '%')){
-	    		i=i-1;
+			if (i == 2) {
+				fun4();
 			}
-			if(val2=='.')
-				po=0;
-	    	str=str.substring(0,str.length-1);
-	    	document.getElementById("1").value=str;
+		}
+		function fun2() {
+			document.getElementById("1").value = "";
+			document.getElementById("2").value = "";
+			k = 0; a = ""; b = ""; c = ""; d = ""; i = 0; str = ""; str1 = ""; t = 0; po = 0; minus = 0;
+		}
+		function fun3() {
+			var val2 = str[str.length - 1];
+			var val3 = str[str.length - 2];
+			let val4 = str[str.length - 3];
+			if ((val2 == '+') || (val2 == '-') || (val2 == '/') || (val2 == 'x') || (val2 == '=') || (val2 == '%')) {
+				i = i - 1;
+			}
+			if (val3 == undefined)
+				i = 0;
+			if (val2 == '.')
+				po = 0;
+			if ((minus == '1') && (val2 == '-')) {
+				minus = 0; i = i + 1
+			}
+			if ((val2 != '+') && (val2 != '-') && (val2 != '/') && (val2 != 'x') && (val2 != '=') && (val2 != '%')) {
+				if ((val3 == '-') && ((val4 == 'x') || (val4 == '/'))) {
+					minus = 1;
+				}
+			}
+			str = str.substring(0, str.length - 1);
+			document.getElementById("1").value = str;
 
-	    }
-	    var str1="";
-	    var g1="";
-	    t=0;
-		function fun4(){
-			po=0;
-			if(a=='='){
-			str=document.getElementById("1").value;
-			document.getElementById("2").value="Wrong Input";
-			document.getElementById("1").value-"";
+		}
+		var str1 = "";
+		var g1 = "";
+		t = 0;
+		function fun4() {
+			po = 0;
+			if (a == '=') {
+				str = document.getElementById("1").value;
+				document.getElementById("2").value = "Wrong Input";
+				document.getElementById("1").value - "";
 			}
-			else{
-			var a1=str.substring(0,c);
-			if(a1=='.')
-				a1=0;
-            a1=Number(a1);
-			var a2=str.substring(c+1,d);
-			if(a2=='.')
-				a2=0;
-            a2=Number(a2);
-            console.log(a1,a2,'edf');
-            if(t==0){
-                 str1+=String(a1)+a+String(a2)+b;
-                 t=1;
-            } 
-            else{
-            	str1+=String(a2)+b;
-            }
-            console.log(str1,'str1');
-			if(a=='+'){
-				g1=a1+a2;
-				console.log(g1,'ans');
-				document.getElementById("2").value=g1;
-			}
-			if(a=='-'){
-				g1=a1-a2;
-				document.getElementById("2").value=g1;
-			}
-			if(a=='/'){
-				g1=a1/a2;
-				document.getElementById("2").value=g1;
-			}
-			if(a=='%'){
-				g1=(a1/a2)*100;
-				document.getElementById("2").value=g1;
-			}
-			if(a=='x'){
-				g1=a1*a2;
-				document.getElementById("2").value=g1;
-			}
-			if(b!='=')
-			{
-				document.getElementById("1").value=String(g1)+b;  
-				str=document.getElementById("1").value;
-				a=b;
-				c=str.length-1;
-				i=1;
-			}
-			else{
-				str="";
-				document.getElementById("1").value=str;
-				document.getElementById("2").value=String(a1)+a+String(a2)+'='+g1;
-				str=g1;
-				k=0; a="";b="";c="";d="";i=0;t=0;p1=1;
+			else {
+				var a1 = str.substring(0, c);
+				if (a1 == '.')
+					a1 = 0;
+				a1 = Number(a1);
+				var a2 = str.substring(c + 1, d);
+				if (a2 == '.')
+					a2 = 0;
+				a2 = Number(a2);
+				console.log(a1, a2, 'edf');
+				if (t == 0) {
+					str1 += String(a1) + a + String(a2) + b;
+					t = 1;
+				}
+				else {
+					str1 += String(a2) + b;
+				}
+				console.log(str1, 'str1');
+				if (a == '+') {
+					g1 = a1 + a2;
+					console.log(g1, 'ans');
+					document.getElementById("2").value = g1;
+				}
+				if (a == '-') {
+					g1 = a1 - a2;
+					document.getElementById("2").value = g1;
+				}
+				if (a == '/') {
+					g1 = a1 / a2;
+					document.getElementById("2").value = g1;
+				}
+				if (a == '%') {
+					g1 = (a1 / a2) * 100;
+					document.getElementById("2").value = g1;
+				}
+				if (a == 'x') {
+					g1 = a1 * a2;
+					document.getElementById("2").value = g1;
+				}
+				if((a1==0)&&(a2==0))
+					g1=Infinity;
+				if((g1==Infinity)||(g1==-Infinity))
+					g1="Can not Divide by zero(0)";
+				if (b != '=') {
+					document.getElementById("1").value = String(g1) + b;
+					str = document.getElementById("1").value;
+					a = b;
+					c = str.length - 1;
+					i = 1;
+				}
+				else {
+					str = "";
+					document.getElementById("1").value = str;
+					document.getElementById("2").value = String(a1) + a + String(a2) + '=' + g1;
+					str = g1;
+					k = 0; a = ""; b = ""; c = ""; d = ""; i = 0; t = 0; p1 = 1;
 
-			}    
-		   }
-	    }
-	    function fun6(){
-	    	document.getElementById("1").value=str1.substring(0,str1.length-1);
-	    	console.log(str1,'str11');
-	    }
+				}
+			}
+			if(g1=="Can not Divide by zero(0)"){
+				k = 0; a = ""; b = ""; c = ""; d = ""; i = 0; str = ""; str1 = ""; t = 0; po = 0; minus = 0;
+			}
+		}
+		function fun6() {
+			document.getElementById("1").value = str1.substring(0, str1.length - 1);
+			console.log(str1, 'str11');
+		}
 	</script>
 </body>
 
